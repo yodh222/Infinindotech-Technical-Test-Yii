@@ -45,7 +45,12 @@ $config = [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'rules' => [],
+            'rules' => [
+                "GET <controller:\w+>" => "<controller>/index",
+                "POST <controller:\w+>" => "<controller>/create",
+                "POST <controller:\w+>/<action:\w+>/<id:\d+>" => "<controller>/<action>",
+                "PUT <controller:\w+>/<id:\d+>" => "<controller>/delete"
+            ],
         ],
     ],
     'params' => $params,
